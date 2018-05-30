@@ -1,0 +1,130 @@
+Header - Authorization: JWT <token>
+
+
+URL - POST http://127.0.0.1:9091/api/v1/auth/register
+{
+	"username": "albert@email.com",
+	"password": "pass1234",
+	"first_name": "Albert",
+	"last_name": "Pinto"
+}
+
+
+
+URL POST - http://127.0.0.1:9091/api/v1/auth/token
+
+{
+	"username": "albert@email.com",
+	"password": "pass1234"
+}
+
+
+
+
+URL POST http://127.0.0.1:9091/api/v1/travel/set
+Header - Authorization: JWT <token>
+{
+	"locations": [
+		{"from": "123123", "to": "adsasd", "distance": 12}, 
+		{"from": "1231ds23", "to": "aadsasd", "distance": 213}
+	]
+}
+
+
+
+URL POST http://127.0.0.1:9091/api/v1/travel/get
+Header - Authorization: JWT <token>
+
+{
+	"from_date":"2018-05-29",
+	"to_date":"2018-05-31"
+}
+Response - 
+{
+    "detail": [
+        {
+            "from": "123123",
+            "to": "adsasd",
+            "date": "2018-05-30"
+        },
+        {
+            "from": "1231ds23",
+            "to": "aadsasd",
+            "date": "2018-05-30"
+        }
+    ],
+    "distance_covered": 225
+}
+
+
+Response - {
+    "last_location": "aadsasd",
+    "distance_covered": 225,
+    "roots": [
+        {
+            "from": "123123",
+            "to": "adsasd",
+            "date": "2018-05-30"
+        },
+        {
+            "from": "1231ds23",
+            "to": "aadsasd",
+            "date": "2018-05-30"
+        }
+    ]
+}
+
+
+
+
+Header - Authorization: JWT <token>
+For ADmIn
+Body
+{
+	"email":"albert@email.com",
+	"from_date":"2018-05-29",
+	"to_date":"2018-05-31"
+}
+
+Response
+{
+    "detail": [
+        {
+            "from": "123123",
+            "to": "adsasd",
+            "date": "2018-05-30"
+        },
+        {
+            "from": "1231ds23",
+            "to": "aadsasd",
+            "date": "2018-05-30"
+        }
+    ],
+    "distance_covered": 225
+}
+
+
+Header - Authorization: JWT <token>
+
+For ADmIn
+Body
+{
+	"email":"albert@email.com"
+}
+Response
+{
+    "last_location": "aadsasd",
+    "distance_covered": 225,
+    "roots": [
+        {
+            "from": "123123",
+            "to": "adsasd",
+            "date": "2018-05-30"
+        },
+        {
+            "from": "1231ds23",
+            "to": "aadsasd",
+            "date": "2018-05-30"
+        }
+    ]
+}
