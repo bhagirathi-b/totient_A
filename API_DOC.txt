@@ -1,4 +1,4 @@
-Header - Authorization: JWT <token>
+
 
 
 URL - POST http://127.0.0.1:9091/api/v1/auth/register
