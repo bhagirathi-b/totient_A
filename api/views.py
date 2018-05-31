@@ -48,9 +48,8 @@ def set_travel(request):
             user = request.user
             for _loc in locations:
                 _from = _loc.get('from')
-                to = _loc.get('to')
-                distance = _loc.get('distance')
-                Location.objects.create(user=user, from_location=_from, to_location=to, distance=distance)
+                _to = _loc.get('to')
+                Location.objects.create(user=user, from_location=_from, to_location=_to)
 
             return Response({'detail': 'Locations updated'}, status=status.HTTP_200_OK)
         except Exception as e:

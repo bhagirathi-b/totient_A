@@ -21,16 +21,16 @@ URL POST - http://127.0.0.1:9091/api/v1/auth/token
 
 
 
+
 URL POST http://127.0.0.1:9091/api/v1/travel/set
 Header - Authorization: JWT <token>
+
 {
-	"locations": [
-		{"from": "123123", "to": "adsasd", "distance": 12}, 
-		{"from": "1231ds23", "to": "aadsasd", "distance": 213}
-	]
+    "locations": [
+        {"from": {"lat": "34.05", "long":"-118.24"}, "to": {"lat": "40.71", "long":"-74.00"}},
+        {"from": {"lat": "40.71", "long":"-74.00"}, "to": {"lat": "41.87", "long":"-87.62"}}
+    ]
 }
-
-
 
 URL POST http://127.0.0.1:9091/api/v1/travel/get
 Header - Authorization: JWT <token>
@@ -39,43 +39,52 @@ Header - Authorization: JWT <token>
 	"from_date":"2018-05-29",
 	"to_date":"2018-05-31"
 }
-Response - 
+
 {
     "detail": [
         {
-            "from": "123123",
-            "to": "adsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
         },
         {
-            "from": "1231ds23",
-            "to": "aadsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
+        },
+        {
+            "from": "Longitude : -74.0 - Latitude: 40.71",
+            "to": "Longitude : -87.62 - Latitude: 41.87",
+            "date": "2018-05-31"
         }
     ],
-    "distance_covered": 225
+    "distance_covered": 9018.954922313982
 }
 
+URL POST http://127.0.0.1:9091/api/v1/travel/get
+Header - Authorization: JWT <token>
 
-Response - {
-    "last_location": "aadsasd",
-    "distance_covered": 225,
+{
+    "last_location": "Longitude : -87.62 - Latitude: 41.87",
+    "distance_covered": 9018.954922313982,
     "roots": [
         {
-            "from": "123123",
-            "to": "adsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
         },
         {
-            "from": "1231ds23",
-            "to": "aadsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
+        },
+        {
+            "from": "Longitude : -74.0 - Latitude: 40.71",
+            "to": "Longitude : -87.62 - Latitude: 41.87",
+            "date": "2018-05-31"
         }
     ]
 }
-
-
-
 
 Header - Authorization: JWT <token>
 For ADmIn
@@ -90,17 +99,22 @@ Response
 {
     "detail": [
         {
-            "from": "123123",
-            "to": "adsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
         },
         {
-            "from": "1231ds23",
-            "to": "aadsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
+        },
+        {
+            "from": "Longitude : -74.0 - Latitude: 40.71",
+            "to": "Longitude : -87.62 - Latitude: 41.87",
+            "date": "2018-05-31"
         }
     ],
-    "distance_covered": 225
+    "distance_covered": 9018.954922313982
 }
 
 
@@ -113,18 +127,23 @@ Body
 }
 Response
 {
-    "last_location": "aadsasd",
-    "distance_covered": 225,
+    "last_location": "Longitude : -87.62 - Latitude: 41.87",
+    "distance_covered": 9018.954922313982,
     "roots": [
         {
-            "from": "123123",
-            "to": "adsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
         },
         {
-            "from": "1231ds23",
-            "to": "aadsasd",
-            "date": "2018-05-30"
+            "from": "Longitude : -118.24 - Latitude: 34.05",
+            "to": "Longitude : -74.0 - Latitude: 40.71",
+            "date": "2018-05-31"
+        },
+        {
+            "from": "Longitude : -74.0 - Latitude: 40.71",
+            "to": "Longitude : -87.62 - Latitude: 41.87",
+            "date": "2018-05-31"
         }
     ]
 }
